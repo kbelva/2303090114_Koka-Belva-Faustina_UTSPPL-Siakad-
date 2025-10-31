@@ -73,4 +73,17 @@ class GradeCalculatorTest {
     void testCalculateMaxCredits_Invalid() {
         assertThrows(IllegalArgumentException.class, () -> calculator.calculateMaxCredits(5.0));
     }
+
+    @Test
+    void testCalculateGPA_TotalCreditsZero_ReturnsZero() {
+        List<CourseGrade> grades = Arrays.asList(
+                new CourseGrade("CS101", 0, 4.0),
+                new CourseGrade("MA102", 0, 3.0)
+        );
+
+        double result = calculator.calculateGPA(grades);
+
+        assertEquals(0.0, result, 0.0001,
+                "Jika totalCredits = 0, maka GPA harus 0.0 sesuai guard clause");
+    }
 }

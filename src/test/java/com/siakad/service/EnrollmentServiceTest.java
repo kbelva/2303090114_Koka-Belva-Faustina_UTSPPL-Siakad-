@@ -37,7 +37,7 @@ class EnrollmentServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        gradeCalculator = new GradeCalculator(); // pakai real class
+        gradeCalculator = new GradeCalculator();
         enrollmentService = new EnrollmentService(
                 studentRepository, courseRepository, notificationService, gradeCalculator);
 
